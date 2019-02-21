@@ -2,8 +2,10 @@
 
 The City of Boston is the largest city in Massachusetts. Per Wikipedia, the city has 800,000 inhabitants [1], and the City reports 40,000 bike trips a day [2], 95,000 drive alone, 83,000 take transit, and 36,000 carpool. [3]  Bikers are commutting in an ever more competitive landscape, and there are injuries that result, and very unfortunately deaths. [4]  
 
+This problem (and investigation) improves the understanding a bicyclist traveling in boston has for their safety, and potentially the better neighborhoods to travel through.  The report does not distinguish between the individuals who are bicycling for fun, business or on a commute. 
+
 Previously identified as one of the worst areas for bikers, the project aims to help Boston bikers be better prepared to travel in the neighborhoods they pass through. 
-Given the appropriate data, the problem is: What level of risk is there in commutting through the boston neighborhoods? 
+Given the appropriate data, the problem is: What level of risk is there in commuting through the boston neighborhoods? 
 
   [1] https://en.wikipedia.org/wiki/Boston  
 [2] https://www.boston.gov/departments/boston-bikes/bike-data#citywide-bike-counts  
