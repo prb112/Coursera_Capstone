@@ -6,6 +6,8 @@ This problem (and investigation) improves the understanding a bicyclist travelin
 
 Previously identified as one of the worst areas for bikers, the project aims to help Boston bikers be better prepared to travel in the neighborhoods they pass through. Given the appropriate data, the problem is: What level of risk is there in commuting through the Boston neighborhoods and how commercial are the neighborhoods? 
 
+The target audience is bikers who would benefit from knowing what are the best neighborhoods to commute through. 
+
   [1] https://en.wikipedia.org/wiki/Boston  
 [2] https://www.boston.gov/departments/boston-bikes/bike-data#citywide-bike-counts  
 [3] https://www.boston.gov/sites/default/files/document-file-03-2017/go_boston_2030_-_3_boston_today_spreads.pdf. 
