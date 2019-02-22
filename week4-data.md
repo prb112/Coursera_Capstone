@@ -3,13 +3,17 @@ To answer the question proposed in the introduction - "What level of risk is the
 
 The data sets used in the analysis are:
 
-- Vision Zero Crash Records https://data.boston.gov/dataset/vision-zero-crash-records https://data.boston.gov/dataset/vision-zero-fatality-records
+- Vision Zero Crash Records 
+    - https://data.boston.gov/dataset/vision-zero-crash-records
+    - https://data.boston.gov/dataset/vision-zero-fatality-records
 
-- Boston Neighborhoods  https://data.boston.gov/dataset/boston-neighborhoods
+- Boston Neighborhoods  
+    - https://data.boston.gov/dataset/boston-neighborhoods
 
-- FourSquare API Search https://developer.foursquare.com/docs/api/venues/search
+- FourSquare API Search 
+    - https://developer.foursquare.com/docs/api/venues/search
 
-## Vision Zero Crash Records https://data.boston.gov/dataset/vision-zero-crash-records https://data.boston.gov/dataset/vision-zero-fatality-records
+## Vision Zero Crash Records
 
 The Crash Record dataset records vehicular/bike incidents which result in injury or fatality. The data is comprised of date, time, location and the type of incident. The data is from the start of 2015 to the end of 2018. 
 
@@ -34,9 +38,11 @@ _id	date_time	mode_type	location_type	street	xstreet1	xstreet2	x_cord	y_cord	lon
 3	2015-04-25 17:48:00	mv	Street	MASSACHUSETTS AVE	MAGAZINE ST	PROCTOR ST	773210.41	2944795.5	-71.067586742	42.3276600882
 ```
 
+The analysis uses lat, long to position to crash and location_type these features are extracted to identify each incident type and location.  The dispatch_ts is used to split the data into partitioned sets.  The partitioned sets showing a trend over the months of data collection, and the changing environmental safety. 
+
 [1] https://data.boston.gov/dataset/vision-zero-crash-records/resource/e4bfe397-6bfc-49c5-9367-c879fac7401d
 
-## Boston Neighborhoods  https://data.boston.gov/dataset/boston-neighborhoods
+## Boston Neighborhoods 
 
 The Boston Neighborhoods data set is a GeoJSON definition file which includes neighborhood boundaries and name labels. This data is current as of April 28, 2017
 
@@ -44,7 +50,9 @@ The Boston Neighborhoods data set is a GeoJSON definition file which includes ne
 ```
 {"type":"Feature","properties":{"OBJECTID":33,"Name":"Chinatown","Acres":76.32440999,"Neighborhood_ID":"26","SqMiles":0.12,"ShapeSTArea":3324678.0184608065,"ShapeSTLength":9736.590412617801},"geometry":{"type":"Polygon","coordinates":[[[-71.0579055147603,42.35237863170756],[-71.05810830329557,42.35237200984217],[-71.05840144237023,42.35239732136049]]}
 ```
-## FourSquare API Search https://developer.foursquare.com/docs/api/venues/search
+From the GeoJSON, the neighborhood name *Name* and the shape of the data are used to enable a visualization of the neighborhoods with the most risk.  The coordinates in the *geometery* of the data establishes a boundary and aggregate within the boundaries the total incidents in each of the neighborhood. The aggregation visualizes the trends within the neighborhoods. 
+
+## FourSquare API Search 
 
 The FourSquare API Search lists the venues near the long/lat enabling the analysis of how commerical the neighborhood is.  THe API call will be limited to venues within a radius of 1000 meters and within an accurancy of 10 meters.  The commercial designation is done using a total number of responses for the latitude and longitude on the page relative to all of the other queries.  The commercial designation is relative. 
 
@@ -65,6 +73,7 @@ The FourSquare API Search lists the venues near the long/lat enabling the analys
           "crossStreet": "btwn Houston & Stanton St",
           "lat": 40.72173744277209,
           "lng": -73.98800687282996,
+          "isFuzzed": true,
           "labeledLatLngs": [
             {
               "label": "display",
@@ -77,5 +86,7 @@ The FourSquare API Search lists the venues near the long/lat enabling the analys
 }
 ```
 
-The data is to be joiend on latitude and longitude in order to correlate data and answer the question under study. 
+From this date, the venues array is extracted and counted to indicate the number of FourSquare venues in the location. The venues are indicative of a more public nature using the abscence of the isFuzzed value from the results in order to calculate the degree of commercial venues.   The *lat*/*lng* are used to position the venue within a neighborhood, and the id is used to keep each query unique.  
+
+The data is to be joined on latitude and longitude in order to correlate data and answer the question under study. 
 
